@@ -9,6 +9,16 @@
     "C:\\Program Files\\Unity\\Hub\\Editor\\6000.0.40f1\\Editor\\Data\\Resources\\PackageManager\\BuiltInPackages\\BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
+    "com.unity.ai.navigation@2.0.6": {
+      "name": "com.unity.ai.navigation",
+      "displayName": "AI Navigation",
+      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.ai.navigation@c74b2724ed42",
+      "fingerprint": "c74b2724ed42c1aa0380e294156d7f54a7ae2ec6",
+      "editorCompatibility": "2023.2.0a18",
+      "version": "2.0.6",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.collab-proxy@2.9.3": {
       "name": "com.unity.collab-proxy",
       "displayName": "Unity Version Control",
@@ -17,15 +27,6 @@
       "editorCompatibility": "2021.3.0f1",
       "version": "2.9.3",
       "source": "registry",
-      "testable": false
-    },
-    "com.unity.feature.2d@2.0.1": {
-      "name": "com.unity.feature.2d",
-      "displayName": "2D",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.feature.2d@dd1ea8910f12",
-      "fingerprint": "dd1ea8910f12f021c166e8d0d78de44f1390ff6b",
-      "version": "2.0.1",
-      "source": "builtin",
       "testable": false
     },
     "com.unity.ide.rider@3.0.31": {
@@ -430,86 +431,6 @@
       "source": "builtin",
       "testable": false
     },
-    "com.unity.2d.animation@10.1.4": {
-      "name": "com.unity.2d.animation",
-      "displayName": "2D Animation",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.2d.animation@494a3b4e73a9",
-      "fingerprint": "494a3b4e73a9ae26677ef6e9fd6bff4ca643770a",
-      "editorCompatibility": "2023.1.0a1",
-      "version": "10.1.4",
-      "source": "registry",
-      "testable": false
-    },
-    "com.unity.2d.pixel-perfect@5.0.3": {
-      "name": "com.unity.2d.pixel-perfect",
-      "displayName": "2D Pixel Perfect",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.2d.pixel-perfect@e3ae982b672d",
-      "fingerprint": "e3ae982b672dc7cca42a6303bdf53b84c69991da",
-      "editorCompatibility": "2021.1.0a1",
-      "version": "5.0.3",
-      "source": "registry",
-      "testable": false
-    },
-    "com.unity.2d.psdimporter@9.0.3": {
-      "name": "com.unity.2d.psdimporter",
-      "displayName": "2D PSD Importer",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.2d.psdimporter@676bae148e11",
-      "fingerprint": "676bae148e11de9a02db5a3614b8c56e4f0f44ac",
-      "editorCompatibility": "2023.1.0a1",
-      "version": "9.0.3",
-      "source": "registry",
-      "testable": false
-    },
-    "com.unity.2d.sprite@1.0.0": {
-      "name": "com.unity.2d.sprite",
-      "displayName": "2D Sprite",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.2d.sprite@072d7bd355e5",
-      "fingerprint": "072d7bd355e55ee3ded20a6a52435a4f5fded0d8",
-      "editorCompatibility": "2019.2.0a1",
-      "version": "1.0.0",
-      "source": "builtin",
-      "testable": false
-    },
-    "com.unity.2d.spriteshape@10.0.7": {
-      "name": "com.unity.2d.spriteshape",
-      "displayName": "2D SpriteShape",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.2d.spriteshape@9e35352ae135",
-      "fingerprint": "9e35352ae135f602746220e7edc09eb95bbec530",
-      "editorCompatibility": "2023.1.0a1",
-      "version": "10.0.7",
-      "source": "registry",
-      "testable": false
-    },
-    "com.unity.2d.tilemap@1.0.0": {
-      "name": "com.unity.2d.tilemap",
-      "displayName": "2D Tilemap Editor",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.2d.tilemap@91afae292a4e",
-      "fingerprint": "91afae292a4e9c80c9c83328346b52d1bb443abe",
-      "editorCompatibility": "2019.2.0a1",
-      "version": "1.0.0",
-      "source": "builtin",
-      "testable": false
-    },
-    "com.unity.2d.tilemap.extras@4.1.0": {
-      "name": "com.unity.2d.tilemap.extras",
-      "displayName": "2D Tilemap Extras",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.2d.tilemap.extras@13634da7dbe0",
-      "fingerprint": "13634da7dbe06c39bac6bbe2d1a166cf91f58ad7",
-      "editorCompatibility": "6000.0.0a1",
-      "version": "4.1.0",
-      "source": "registry",
-      "testable": false
-    },
-    "com.unity.2d.aseprite@1.1.8": {
-      "name": "com.unity.2d.aseprite",
-      "displayName": "2D Aseprite Importer",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.2d.aseprite@1f731787b516",
-      "fingerprint": "1f731787b516be32a29864ebe53bd4e737058c54",
-      "editorCompatibility": "2021.3.15f1",
-      "version": "1.1.8",
-      "source": "registry",
-      "testable": false
-    },
     "com.unity.searcher@4.9.3": {
       "name": "com.unity.searcher",
       "displayName": "Searcher",
@@ -558,16 +479,6 @@
       "editorCompatibility": "2023.3.0b1",
       "version": "1.0.1",
       "source": "builtin",
-      "testable": false
-    },
-    "com.unity.2d.common@9.0.7": {
-      "name": "com.unity.2d.common",
-      "displayName": "2D Common",
-      "resolvedPath": "C:\\UnityMyProject\\2018312565_Graduation\\kysgraduate\\Library\\PackageCache\\com.unity.2d.common@bb1fc9b3d81b",
-      "fingerprint": "bb1fc9b3d81b3bb452c6708e8c088fe4224a0369",
-      "editorCompatibility": "2023.1.0a1",
-      "version": "9.0.7",
-      "source": "registry",
       "testable": false
     },
     "com.unity.nuget.mono-cecil@1.11.4": {

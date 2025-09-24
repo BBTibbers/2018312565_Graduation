@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5001792424683797144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7096641001330913288}
+  - component: {fileID: 1464620007777998987}
+  m_Layer: 0
+  m_Name: GridManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7096641001330913288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5001792424683797144}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1464620007777998987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5001792424683797144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c17619baa8c984da463abbcf53f5c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 16
+  height: 16
+  mineCount: 35
+  cellSize: 1
+  origin: {x: 0, y: 0, z: 0}
+  yLevel: 0
+  cellPrefab: {fileID: 8059007671130745996, guid: fc5e90e05bf4d944aa58095684170a53, type: 3}
+  numberSprites:
+  - {fileID: 21300000, guid: df79c64a33cf14b4ab06990d1f268f2c, type: 3}
+  - {fileID: 21300000, guid: d75d290ed5dce41429aa666e0762f44c, type: 3}
+  - {fileID: 21300000, guid: c96c3fe577d91fb49b0b26fe7743a35e, type: 3}
+  - {fileID: 21300000, guid: afbe206a7ff090d4baf314fecd5c126e, type: 3}
+  - {fileID: 21300000, guid: ea046fb1a6dd8c14b91d3aeac4a40eaf, type: 3}
+  - {fileID: 21300000, guid: 52b55242e69b6c64eb13822078238b77, type: 3}
+  - {fileID: 21300000, guid: cdc7b41f3fbe0e54f8adafcf26c6d78e, type: 3}
+  - {fileID: 21300000, guid: 694861cc97f0f1148a58df6066cda112, type: 3}
+  - {fileID: 21300000, guid: 6a7f93ca16a72d34eaf4a11888decbf6, type: 3}
+  playerPrefab: {fileID: 7365954464968515843, guid: b33513e3d45b9d54f80320ca76250dc4, type: 3}

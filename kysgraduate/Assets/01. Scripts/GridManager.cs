@@ -9,7 +9,7 @@ public class GridManager : MonoBehaviour
     [Header("Board")]
     public int width = 16;        // X축 칸 수
     public int height = 16;       // Z축 칸 수(기존 y 의미였던 것을 Z로 사용)
-    public int mineCount = 35;
+    public int mineCount = 102;
     public float cellSize = 1f;
 
     [Tooltip("그리드 원점 (XZ 평면 기준). 예: (0,0,0)에서 시작")]
@@ -93,7 +93,7 @@ public class GridManager : MonoBehaviour
         for (int dz = -1; dz <= 1; dz++)
             for (int dx = -1; dx <= 1; dx++)
             {
-                if (dx == 0 && dz == 0) continue;
+                //if (dx == 0 && dz == 0) continue;
                 int nx = x + dx, nz = z + dz;
                 if (InBounds(nx, nz) && _cells[nx, nz].IsMine) cnt++;
             }

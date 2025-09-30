@@ -1,29 +1,29 @@
 # --- Unity core ---
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild*/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild*/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
 *.log
 sysinfo.txt
 
 # 메모리 캡처 / 녹화 (용량 큼)
-/[Mm]emoryCaptures/
-/[Rr]ecordings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
 
 # JetBrains Rider 플러그인 (자동 생성)
-/[Aa]ssets/Plugins/Editor/JetBrains*
+[Aa]ssets/Plugins/Editor/JetBrains*
 
 # --- Addressables ---
 # 로컬 빌드 산출물(StreamingAssets/aa)과 원격 빌드 기본 폴더(서버 데이터) 무시
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/**     # 로컬 번들/카탈로그 전부 무시
-CCDBuildData/                           # Unity CCD 로컬 산출물
-ServerData/                             # Addressables 원격 빌드 폴더(사용 시)
+[Aa]ssets/StreamingAssets/aa.meta
+[Aa]ssets/StreamingAssets/aa/**
+CCDBuildData/
+ServerData/
 
 # Packed Addressables 추가 방어
-/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+[Aa]ssets/AddressableAssetsData/*/*.bin*
 
 # --- IDE / OS ---
 .vs/

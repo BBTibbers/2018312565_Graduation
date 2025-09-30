@@ -93,7 +93,7 @@ public class GridManager : MonoBehaviour
         for (int dz = -1; dz <= 1; dz++)
             for (int dx = -1; dx <= 1; dx++)
             {
-                //if (dx == 0 && dz == 0) continue;
+                if (dx == 0 && dz == 0) continue;
                 int nx = x + dx, nz = z + dz;
                 if (InBounds(nx, nz) && _cells[nx, nz].IsMine) cnt++;
             }

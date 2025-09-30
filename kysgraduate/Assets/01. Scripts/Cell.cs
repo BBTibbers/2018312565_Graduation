@@ -39,7 +39,7 @@ public class Cell : MonoBehaviour
     public void SetNumberTexture()
     {
         if (!mrNumber) return;
-        //if (IsMine==true) NeighborMines = 0;
+        if (IsMine==true) NeighborMines = 0;
         if (_mpb == null) _mpb = new MaterialPropertyBlock();
 
         int idx = Mathf.Clamp(NeighborMines, 0, NumberTextures.Length - 1);

@@ -125,8 +125,9 @@ MonoBehaviour:
   GridPos: {x: 0, y: 0}
   IsMine: 0
   NeighborMines: 0
+  IsFlagged: 0
   mrNumber: {fileID: 7680566105356191492}
-  numberTextures:
+  NumberTextures:
   - {fileID: 2800000, guid: 8874530eda9afcd43b9146f4f740268d, type: 3}
   - {fileID: 2800000, guid: d75d290ed5dce41429aa666e0762f44c, type: 3}
   - {fileID: 2800000, guid: c96c3fe577d91fb49b0b26fe7743a35e, type: 3}
@@ -137,6 +138,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 694861cc97f0f1148a58df6066cda112, type: 3}
   - {fileID: 2800000, guid: 6a7f93ca16a72d34eaf4a11888decbf6, type: 3}
   - {fileID: 2800000, guid: 5709eef3dd8b5834e9ce9543437a6c0a, type: 3}
+  FlagTexture: {fileID: 2800000, guid: fb605d47608490046a98b8ca9ba22bd7, type: 3}
 --- !u!1 &8154203352909831585
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,8 +150,7 @@ GameObject:
   - component: {fileID: 822544999863853649}
   - component: {fileID: 9068422876243646656}
   - component: {fileID: 7680566105356191492}
-  - component: {fileID: 6797459629897773014}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +200,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e2432b4e5936ce946ae3a1e0bc33d091, type: 2}
@@ -224,25 +225,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6797459629897773014
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8154203352909831585}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}

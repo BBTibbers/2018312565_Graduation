@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     private PlayerMove _player;
-    private Vector3 _topPosition = new Vector3(0f, 5f, 0f);
+    private Vector3 _topPosition = new Vector3(0f, 10f, 0f);
 
     void Start()
     {

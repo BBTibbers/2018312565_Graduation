@@ -22,5 +22,14 @@ public class CellClickHandler : MonoBehaviour
                 if (cell != null) cell.ToggleFlag();
             }
         }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out var hit, 1000f, _cellLayer))
+            {
+                var cell = hit.collider.GetComponent<Cell>();
+                if (cell != null) cell.Open();
+            }
+        }
     }
 }

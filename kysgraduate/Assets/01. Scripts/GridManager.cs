@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    public static GridManager I { get; private set; }
-    private void Awake() => I = this;
+    public static GridManager Instance { get; private set; }
+    private void Awake() => Instance = this;
 
     [Header("Board")]
     public int width = 16;        // X축 칸 수
@@ -26,14 +26,12 @@ public class GridManager : MonoBehaviour
     public GameObject playerPrefab;   // 🎮 플레이어 프리팹
 
     private Cell[,] _cells;
-    private readonly HashSet<Cell> _openedCells = new(); // 시야 계산 최적화용
-    public IEnumerable<Cell> OpenedCells => _openedCells;
 
     void Start()
     {
         Generate();
         BuildBorderWalls();
-        SpawnPlayerAtCenter();
+        SpawnPlayer();
     }
 
     public void Generate()
@@ -48,6 +46,7 @@ public class GridManager : MonoBehaviour
                 pos = pos - Vector3.up * 0.5f;
                 var cell = Instantiate(cellPrefab, pos, Quaternion.identity, transform);
                 cell.GridPos = new Vector2Int(x, z); // 인덱스는 (x, z)를 Vector2Int로 보관
+                cell.IsCovered = true;
                 _cells[x, z] = cell;
             }
 
@@ -59,9 +58,8 @@ public class GridManager : MonoBehaviour
             for (int x = 0; x < width; x++)
             {
                 var c = _cells[x, z];
-                //if (c.IsMine) continue;
                 c.NeighborMines = CountNeighbors(x, z);
-                c.SetNumberTexture();
+                c.RefreshTexture();
             }
     }
 
@@ -141,17 +139,57 @@ public class GridManager : MonoBehaviour
         cell = null;
         return false;
     }
-    private void SpawnPlayerAtCenter()
+    private void SpawnPlayer()
     {
-        if (playerPrefab == null) return;
+        if (playerPrefab == null || _cells == null) return;
 
-        int centerX = width / 2;
-        int centerZ = height / 2;
+        int x, z;
 
-        Vector3 spawnPos = GridToWorld(centerX, centerZ);
-        spawnPos.y = spawnPos.y + 0.5f;
+        // 0칸을 우선 탐색
+        if (TryGetRandomZeroCell(out x, out z))
+        {
+            // 0칸이면 연결 오픈
+            RevealFlood(x, z);                 // ← 이전에 만들어둔 플러드필 함수
+        }
+
+        // 그 위치에 플레이어 생성
+        Vector3 spawnPos = GridToWorld(x, z);
+        spawnPos.y += 0.5f;
         Instantiate(playerPrefab, spawnPos, Quaternion.identity);
     }
+    private bool TryGetRandomZeroCell(out int rx, out int rz, int maxTries = 200)
+    {
+        // 빠른 시도: 완전 랜덤으로 몇 번 찍어보기
+        for (int i = 0; i < maxTries; i++)
+        {
+            int x = Random.Range(0, width);
+            int z = Random.Range(0, height);
+            var c = _cells[x, z];
+            if (!c.IsMine && c.NeighborMines == 0)
+            {
+                rx = x; rz = z;
+                return true;
+            }
+        }
+
+        // 백업: 보드 전체에서 0칸 수집 후 랜덤
+        var zeros = new List<Vector2Int>();
+        for (int z = 0; z < height; z++)
+            for (int x = 0; x < width; x++)
+                if (!_cells[x, z].IsMine && _cells[x, z].NeighborMines == 0)
+                    zeros.Add(new Vector2Int(x, z));
+
+        if (zeros.Count > 0)
+        {
+            var p = zeros[Random.Range(0, zeros.Count)];
+            rx = p.x; rz = p.y;
+            return true;
+        }
+
+        rx = 0; rz = 0;
+        return false;
+    }
+
     private void BuildBorderWalls()
     {
         if (!wallPrefab) return;
@@ -196,4 +234,62 @@ public class GridManager : MonoBehaviour
             var right = Instantiate(wallPrefab, rightPos, Quaternion.identity, parent);
         }
     }
+
+    // 연결된 0영역과 그 경계의 숫자칸까지 모두 오픈
+    public void RevealFlood(int sx, int sz)
+    {
+        if (!InBounds(sx, sz)) return;
+
+        var visited = new bool[width, height];
+        var q = new Queue<Vector2Int>();
+
+        void EnqueueIfValid(int x, int z)
+        {
+            if (!InBounds(x, z)) return;
+            if (visited[x, z]) return;
+            var c = _cells[x, z];
+            if (c.IsMine || c.IsFlagged) return;
+            visited[x, z] = true;
+            q.Enqueue(new Vector2Int(x, z));
+        }
+
+        EnqueueIfValid(sx, sz);
+
+        while (q.Count > 0)
+        {
+            var p = q.Dequeue();
+            var cur = _cells[p.x, p.y];
+
+            cur.IsCovered = false;
+            cur.RefreshTexture();
+
+            // 0칸이면 8방향을 큐에 추가 (숫자칸이면 거기서 확장은 멈춤)
+            if (cur.NeighborMines == 0)
+            {
+                for (int dz = -1; dz <= 1; dz++)
+                    for (int dx = -1; dx <= 1; dx++)
+                    {
+                        if (dx == 0 && dz == 0) continue;
+                        EnqueueIfValid(p.x + dx, p.y + dz);
+                    }
+            }
+        }
+    }
+
+    public void ShowAllMine()
+    {
+        for(int x =0; x<width; x++)
+            for(int z = 0; z < height; z++)
+            {
+                if (_cells[x, z].IsMine) 
+                {
+                    _cells[x, z].IsCovered = false;
+                    _cells[x, z].RefreshTexture();
+                }
+            }
+    }
+
+    // 필요시: 외부에서 특정 셀 얻기
+    public Cell GetCell(int x, int z) => InBounds(x, z) ? _cells[x, z] : null;
+
 }

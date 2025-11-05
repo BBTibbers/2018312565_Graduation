@@ -9,14 +9,17 @@ public class PlayerMove : MonoBehaviour
     [Header("Camera")]
     public Camera mainCamera; // Inspector에 Camera.main 드래그
 
-    private CharacterController controller;
+    private CharacterController _characterController;
+
+    private Animator _animator;
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        _characterController = GetComponent<CharacterController>();
         if (mainCamera == null)
             mainCamera = Camera.main;
         mainCamera = Camera.main;
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -33,8 +36,17 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 input = new Vector3(h, 0f, v).normalized;
 
+        if(h == 0 && v == 0)
+        {
+            _animator.SetBool("Moving", false);
+        }
+        else
+        {
+            _animator.SetBool("Moving", true);
+        }
+
         // CharacterController 이동
-        controller.SimpleMove(input * moveSpeed);
+        _characterController.SimpleMove(input * moveSpeed);
     }
 
     private void RotateTowardsMouse()

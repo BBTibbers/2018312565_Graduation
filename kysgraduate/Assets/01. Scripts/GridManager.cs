@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
@@ -26,6 +27,8 @@ public class GridManager : MonoBehaviour
     public GameObject playerPrefab;   // 🎮 플레이어 프리팹
 
     private Cell[,] _cells;
+
+    public event Action OnFinished;
 
     void Start()
     {
@@ -73,7 +76,7 @@ public class GridManager : MonoBehaviour
         // 단순 셔플
         for (int i = 0; i < all.Count; i++)
         {
-            int j = Random.Range(i, all.Count);
+            int j = UnityEngine.Random.Range(i, all.Count);
             (all[i], all[j]) = (all[j], all[i]);
         }
 
@@ -162,8 +165,8 @@ public class GridManager : MonoBehaviour
         // 빠른 시도: 완전 랜덤으로 몇 번 찍어보기
         for (int i = 0; i < maxTries; i++)
         {
-            int x = Random.Range(0, width);
-            int z = Random.Range(0, height);
+            int x = UnityEngine.Random.Range(0, width);
+            int z = UnityEngine.Random.Range(0, height);
             var c = _cells[x, z];
             if (!c.IsMine && c.NeighborMines == 0)
             {
@@ -181,7 +184,7 @@ public class GridManager : MonoBehaviour
 
         if (zeros.Count > 0)
         {
-            var p = zeros[Random.Range(0, zeros.Count)];
+            var p = zeros[UnityEngine.Random.Range(0, zeros.Count)];
             rx = p.x; rz = p.y;
             return true;
         }
@@ -287,6 +290,7 @@ public class GridManager : MonoBehaviour
                     _cells[x, z].RefreshTexture();
                 }
             }
+        OnFinished.Invoke();
     }
 
     // 필요시: 외부에서 특정 셀 얻기

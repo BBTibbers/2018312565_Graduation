@@ -69,7 +69,27 @@ public class Cell : MonoBehaviour
     public void ToggleFlag()
     {
         if(!IsCovered) { return; }
-        IsFlagged = !IsFlagged;
+        if(IsFlagged==true) 
+        {
+            IsFlagged = false;
+            if (IsMine == true)
+            {
+                GameManager.Instance.CorrectMineCount--;
+            }
+        }
+        else
+        {
+            if (GameManager.Instance.CountFlag == GameManager.Instance.mineCount)
+            {
+                return;
+            }
+            IsFlagged=true;
+            if (IsMine == true)
+            {
+                GameManager.Instance.CorrectMineCount++;
+                GameManager.Instance.CheckWin();
+            }
+        }
         RefreshTexture();
     }
     public void Open()
@@ -79,7 +99,7 @@ public class Cell : MonoBehaviour
 
         if (IsMine)
         {
-            GridManager.Instance.ShowAllMine();
+            GameManager.Instance.ShowAllMine();
             Debug.Log("게임오버");
             // 필요하면 게임오버 처리 추가
             return;
@@ -92,7 +112,7 @@ public class Cell : MonoBehaviour
         if (NeighborMines == 0)
         {
             // 0이면 연결 오픈(플러드필)
-            GridManager.Instance.RevealFlood(GridPos.x, GridPos.y);
+            GameManager.Instance.RevealFlood(GridPos.x, GridPos.y);
         }
         else
         {
